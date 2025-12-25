@@ -24,7 +24,29 @@ func cubeTimestamp() string {
 	)
 }
 
+func printHelp() {
+	fmt.Println(`Usage: cubectrl [Flags]
+
+Control cube in your terminal instead of controlling Kubernetes.
+
+Controls:
+  Arrow keys or wasd: Rotate the cube
+  z: Zoom in
+  x: Zoom out
+  Ctrl+C or Esc: Exit
+
+Flags:
+  -h, --help    help for cubectrl`)
+}
+
 func main() {
+
+	if len(os.Args) > 1 {
+		if os.Args[1] == "--help" || os.Args[1] == "-h" {
+			printHelp()
+			return
+		}
+	}
 
 	pid := os.Getpid()
 	cubeLog(fmt.Sprintf("%s %5d loader.go:223] Error loading kubeconfig:\n", cubeTimestamp(), pid), 1000)
@@ -106,6 +128,18 @@ loop:
 					pitch -= 0.1
 				}
 				if ev.Key == termbox.KeyArrowDown {
+					pitch += 0.1
+				}
+				if string(ev.Ch) == "a" {
+					yaw -= 0.1
+				}
+				if string(ev.Ch) == "d" {
+					yaw += 0.1
+				}
+				if string(ev.Ch) == "w" {
+					pitch -= 0.1
+				}
+				if string(ev.Ch) == "s" {
 					pitch += 0.1
 				}
 				if string(ev.Ch) == "z" {
