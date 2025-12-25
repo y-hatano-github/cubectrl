@@ -20,7 +20,7 @@ https://github.com/y-hatano-github/cubectrl/releases/latest
 ```bash
 wget https://github.com/y-hatano-github/cubectrl/releases/latest/download/cubectrl_linux_amd64.tar.gz
 tar -xzvf cubectrl_linux_amd64.tar.gz
-mv cubectrl /usr/local/bin/
+sudo mv cubectrl /usr/local/bin/
 cubectrl
 ```
 ## 🍎 macOS
