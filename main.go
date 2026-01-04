@@ -27,7 +27,7 @@ func cubeTimestamp() string {
 func printHelp() {
 	fmt.Println(`Usage: cubectl [Flags]
 
-Control cube in your terminal instead of controlling Kubernetes.
+Control a cube in your terminal instead of controlling Kubernetes.
 
 Controls:
   Arrow keys or wasd: Rotate the cube
@@ -49,14 +49,14 @@ func main() {
 	}
 
 	pid := os.Getpid()
-	cubeLog(fmt.Sprintf("%s %5d loader.go:223] Error loading kubeconfig:\n", cubeTimestamp(), pid), 1000)
-	cubeLog(fmt.Sprintf("unable to read config file %q: no such file or directory\n", "/home/user/.kube/config"), 1000)
-	cubeLog(fmt.Sprintf("%s %5d round_trippers.go:45] Failed to create Kubernetes client:\n", cubeTimestamp(), pid), 200)
-	cubeLog("no configuration has been provided\n", 800)
-	cubeLog(fmt.Sprintf("%s %5d command.go:112] error: unknown command %q\n\n", cubeTimestamp(), pid, "kubectl"), 1000)
+	cubeLog(fmt.Sprintf("%s %5d loader.go:223] Error loading kubeconfig:\n", cubeTimestamp(), pid), 500)
+	cubeLog(fmt.Sprintf("unable to read config file %q: no such file or directory\n", "/home/user/.kube/config"), 500)
+	cubeLog(fmt.Sprintf("%s %5d round_trippers.go:45] Failed to create Kubernetes client:\n", cubeTimestamp(), pid), 400)
+	cubeLog("no configuration has been provided\n", 100)
+	cubeLog(fmt.Sprintf("%s %5d command.go:112] error: unknown command %q\n\n", cubeTimestamp(), pid, "kubectl"), 500)
 	cubeLog("Did you mean this?\n", 1)
-	cubeLog("    kubectl\n\n", 1000)
-	cubeLog("Initializing cube rendering engine...\n", 2500)
+	cubeLog("    kubectl\n\n", 500)
+	cubeLog("Initializing cube rendering engine...\n", 3200)
 
 	// Cube vertices
 	v := g.VertexData{
