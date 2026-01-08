@@ -13,7 +13,14 @@ var rootCmd = &cobra.Command{
 	Long: `cubectl controls cube instead of Kubernetes clusters.
 
 Find more information at:
-  https://github.com/y-hatano-github/cubectl`,
+  https://github.com/y-hatano-github/cubectl
+  
+Controls:
+  Arrow keys or wasd: Rotate the cube
+  z: Zoom in
+  x: Zoom out
+  Ctrl+C or Esc: Exit 
+  `,
 	Run: func(cmd *cobra.Command, args []string) {
 		// default action
 		RunCube(cmd, args)
